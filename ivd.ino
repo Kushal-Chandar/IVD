@@ -26,7 +26,6 @@ constexpr int BACKOFF_STEPS        = 1375;  // Steps to back off after hitting s
 constexpr int SCAN_START_POSITION  = 800;
 constexpr int SCAN_STEPS           = 275;
 
-
 DRV8834 stepper(MOTOR_STEPS, DIR_PIN, STEP_PIN, SLEEP_PIN, MICROSTEP_PIN_0, MICROSTEP_PIN_1);
 
 // ─────────────────────────────────────────────────────────────
@@ -40,12 +39,15 @@ inline bool gkBlockedRaw() {
 }
 
 // ─────────────────────────────────────────────────────────────
-// Debounce & Interrupts
+// Debounce Variables
 // ─────────────────────────────────────────────────────────────
-bool          lastRawState    = HIGH;
-bool          stableButton    = HIGH;
-unsigned long lastChangeMs    = 0;
+bool lastRawState = HIGH;
+bool stableButton = HIGH;
+unsigned long lastChangeMs = 0;
 
+// ─────────────────────────────────────────────────────────────
+// Interrupt Flag
+// ─────────────────────────────────────────────────────────────
 volatile bool stopMotor = false;
 
 void handleGK152Interrupt() {
@@ -85,7 +87,7 @@ void homeToGK152(bool cwTowardSensor = true, float rpm = PRE_SCAN_RPM, bool back
     stepper.disable();
     return;
   }
-  
+
   if (backOff) {
     Serial.println("Backing off from sensor...");
     stepper.rotate(-BACKOFF_STEPS * direction);
@@ -110,7 +112,6 @@ void setup() {
   stepper.begin(PRE_SCAN_RPM);
   stepper.setMicrostep(MICROSTEP_LEVEL);
   stepper.disable();
-  
 
   homeToGK152();
 }
@@ -155,7 +156,7 @@ void runStepperSequence() {
   stepper.setRPM(SCAN_RPM);
   stepper.rotate(SCAN_STEPS);
 
-  homeToGK152();  
+  homeToGK152();
 }
 
 // ─────────────────────────────────────────────────────────────
