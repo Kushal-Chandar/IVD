@@ -112,8 +112,6 @@ void setup() {
   stepper.begin(PRE_SCAN_RPM);
   stepper.setMicrostep(MICROSTEP_LEVEL);
   stepper.disable();
-
-  homeToGK152();
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -144,7 +142,11 @@ bool readButtonPressed() {
 // Motion Sequence with Re-Homing at Start
 // ─────────────────────────────────────────────────────────────
 void runStepperSequence() {
+  homeToGK152();
+
   stepper.enable();
+
+  delay(1000);
 
   Serial.println("Go to Scan Start Position");
   delay(100);
