@@ -6,7 +6,7 @@
 This project drives a stepper motor with a DRV8834 driver for an in-vitro diagnostic (IVD) device.
 The motor positions samples for laser scanning, with homing via an optical switch (GK152) and a controlled scan routine.
 
-<p align="center"> <img alt="SmearBot hero" src="assets/hero.jpg" width="360"> </p>
+<p align="center"> <img alt="IVD hero" src="assets/hero.jpg" width="480"> </p>
 
 # Features
 
