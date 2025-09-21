@@ -1,4 +1,4 @@
-# IVD Laser Reader
+# IVD Laser Based - Strip Reader
 
 [![c](https://img.shields.io/badge/C-00599C?logo=c)](https://en.cppreference.com/w/)
 [![Arduino IDE](https://img.shields.io/badge/Arduino_IDE-00979D?&logo=arduino&logoColor=white)](https://www.arduino.cc/en/software/)
@@ -31,3 +31,5 @@ The motor positions samples for laser scanning, with homing via an optical switc
 <p  align="center"> <img alt="ivd internals" src="assets/ivd.jpg" width="480"></p>
 
 ## Demo
+
+https://github.com/user-attachments/assets/894b38b7-9e48-4f34-ba92-822ea7392790
